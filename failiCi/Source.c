@@ -70,26 +70,40 @@ void main()
 		}
 			for (int i = cha-1; i >= 0; i--)
 			{
-				if (line[0] == 45)
+				if (line[i] == 46)
 				{
-					if (line[i] != 45)
+					int chha=1;
+					for (int j = 1; j < cha  - i; j++)
+					{
+						chha = chha * 10;
+					}
+					a1 = a1 / chha;
+					ymna = 1;
+				}
+				else
+				{
+					if (line[0] == 45)
+					{
+						if (line[i] != 45)
+						{
+							apr = line[i] - '0';
+							a1 += apr * ymna;
+							ymna = ymna * 10;
+						}
+						else
+						{
+							a1 = a1 * -1;
+						}
+					}
+					else
 					{
 						apr = line[i] - '0';
 						a1 += apr * ymna;
 						ymna = ymna * 10;
 					}
-					else
-					{
-						a1 = a1 * -1;
-					}
 				}
-				else
-				{
-					apr = line[i] - '0';
-					a1 += apr * ymna;
-					ymna = ymna * 10;
 				}
-			}
+
 			int chb = cha;
 			double bpr = 0;
 			int ymnb = 1;
@@ -106,24 +120,37 @@ void main()
 			}
 			for (int i = chb; i >= cha+1; i--)
 			{
-				if (line[cha+1] == 45)
+				if (line[i] == 46)
 				{
-					if (line[i] != 45)
+					int chhb = 1;
+					for (int j = 1; j < chb+1 - i; j++)
+					{
+						chhb = chhb * 10;
+					}
+					b1 = b1 / chhb;
+					ymnb = 1;
+				}
+				else
+				{
+					if (line[cha + 1] == 45)
+					{
+						if (line[i] != 45)
+						{
+							bpr = line[i] - '0';
+							b1 += bpr * ymnb;
+							ymnb = ymnb * 10;
+						}
+						else
+						{
+							b1 = b1 * -1;
+						}
+					}
+					else
 					{
 						bpr = line[i] - '0';
 						b1 += bpr * ymnb;
 						ymnb = ymnb * 10;
 					}
-					else
-					{
-						b1 = b1 * -1;
-					}
-				}
-				else
-				{
-					bpr = line[i] - '0';
-					b1 += bpr * ymnb;
-					ymnb = ymnb * 10;
 				}
 			}
 			int chc = chb;
@@ -142,24 +169,37 @@ void main()
 			}
 			for (int i = chc; i >= chb + 2; i--)
 			{
-				if (line[chb + 2] == 45)
+				if (line[i] == 46)
 				{
-					if (line[i] != 45)
+					int chhc = 1;
+					for (int j = 1; j < chc + 1 - i; j++)
+					{
+						chhc = chhc * 10;
+					}
+					c1 = c1 / chhc;
+					ymnc = 1;
+				}
+				else
+				{
+					if (line[chb + 2] == 45)
+					{
+						if (line[i] != 45)
+						{
+							cpr = line[i] - '0';
+							c1 += cpr * ymnc;
+							ymnc = ymnc * 10;
+						}
+						else
+						{
+							c1 = c1 * -1;
+						}
+					}
+					else
 					{
 						cpr = line[i] - '0';
 						c1 += cpr * ymnc;
 						ymnc = ymnc * 10;
 					}
-					else
-					{
-						c1 = c1 * -1;
-					}
-				}
-				else
-				{
-					cpr = line[i] - '0';
-					c1 += cpr * ymnc;
-					ymnc = ymnc * 10;
 				}
 			}
 		}
