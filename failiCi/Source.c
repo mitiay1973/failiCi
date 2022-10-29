@@ -6,24 +6,70 @@ void Quad(float a, float b, float c, FILE* file)
 {
 	float Disckiriminant, x1, x2;
 	Disckiriminant = b * b - 4 * a * c;
-	if (Disckiriminant < 0)
+	if ((a != 0) && (b != 0) && (c != 0))
 	{
-		fprintf(file, "Дискриминанта нет");
+		Disckiriminant = b * b - 4 * a * c;
+		if (Disckiriminant < 0)
+		{
+			printf("корней нет");
+			fprintf(file, "Дискриминант = %f корней нет", Disckiriminant);
+			fclose(file);
+
+		}
+		else if (Disckiriminant == 0)
+		{
+			x1 = -b / (2 * a);
+			fprintf(file, "Дискриминант = %f количество корней:1 x: %f ", Disckiriminant, x1);
+			fclose(file);
+		}
+		else if (Disckiriminant > 0)
+		{
+			x1 = (-b + sqrt(Disckiriminant)) / (2 * a);
+			x2 = (-b - sqrt(Disckiriminant)) / (2 * a);
+			printf("x1: % f x2 : % f", x1, x2);
+			fprintf(file, "Дискриминант = %f количество корней:2 x1: %f x2: %f", Disckiriminant, x1, x2);
+			fclose(file);
+		}
 	}
-	if (Disckiriminant == 0)
+	else if ((c == 0) && (b == 0))
 	{
-		x1 = (-b) / (2 * a);
-		fprintf(file, "Дискриминант равен %f\n", Disckiriminant);
-		fprintf(file, "x1 = %f", x1);
+		x1 = 0;
+		printf("Корень уравнения = %f ", x1);
+		fprintf(file, "Корень уравнения = %f ", x1);
+		fclose(file);
 	}
-	if (Disckiriminant > 0)
+	else if (b == 0)
 	{
-		x1 = ((-b) - sqrt(Disckiriminant)) / (2 * a);
-		x2 = ((-b) + sqrt(Disckiriminant)) / (2 * a);
-		fprintf(file, "Дискриминант равен %f\n", Disckiriminant);
-		fprintf(file, "x1 = %f, x2 = %f", x1, x2);
+
+		if (-c / a < 0)
+		{
+			printf("Не имеет корней");
+		}
+		else
+		{
+			x1 = sqrt((-c / a));
+			printf("Корни уравнения = %f и -%f", x1, x1);
+			fprintf(file, "Корни уравнения = %f и -%f", x1, x1);
+			fclose(file);
+		}
+	}
+	else if (c == 0)
+	{
+		x1 = -b / a;
+		x2 = 0;
+		printf("Корни уравнения = %f и %f", x1, x2);
+		fprintf(file, "Корни уравнения = %f и %f", x1, x2);
+		fclose(file);
+	}
+	else if (a == 0)
+	{
+		x1 = -c / b;
+		printf("Корень уравнения = %f ", x1);
+		fprintf(file, "Корнь уравнения = %f ", x1);
+		fclose(file);
 	}
 }
+
 
 void main()
 {
